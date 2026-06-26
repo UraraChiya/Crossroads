@@ -138,7 +138,7 @@ public class CRConfig{
 		rotateBeam = clientBuilder.comment("Should beams visually rotate?").define("rotate_beam", true);
 		beamTransparent = clientBuilder.comment("Whether beams should be transparent and glowing", "Default opaque beams are easier to see, but transparent beams are prettier", "With transparent on, void makes beams more transparent instead of darker, and pure void beams are totally invisible").define("transparent_beams", false);
 //		colorChartResolution = clientBuilder.comment("Pixel size on the color chart", "Higher values will reduce FPS lag in the color chart UI, but will make it less precise and 'smooth' looking").defineInRange("color_res", 1, 1, 4);
-		beamSounds = clientBuilder.comment("Should beams make sounds?").define("beam_sounds", true);
+//		beamSounds = clientBuilder.comment("Should beams make sounds?").define("beam_sounds", true);
 		electricSounds = clientBuilder.comment("Should electrical arcs make sounds?").define("electric_sounds", true);
 		fluxSounds = clientBuilder.comment("Should temporal entropy transfer make sounds?").define("entropy_sounds", true);
 		cageMeterOverlay = clientBuilder.comment("Should the overlay for the beam cage render while not holding a beam staff?", "Regardless of setting, it only shows while a beam cage is equipped.").define("beam_cage_overlay", true);
@@ -151,6 +151,7 @@ public class CRConfig{
 		ModConfigSpec.Builder serverBuilder = new ModConfigSpec.Builder();
 
 		serverBuilder.push(CAT_INTERNAL);
+		beamSounds = serverBuilder.comment("Should beams make sounds?").define("beam_sounds", true);
 		speedPrecision = serverBuilder.comment("Lower values increase network lag but increases gear speed synchronization").defineInRange("predict_speed", 0.20F, 0.05F, 10F);
 		gearResetTime = serverBuilder.comment("Interval in ticks between gear network checks").defineInRange("network_time", 300, 100, 2400);
 //		wipeInvalidMappings = serverBuilder.worldRestart().comment("Wipe internal per player dimension mappings on failure?", "Only change this if you know what you're doing").define("wipe_dim_map", false);
